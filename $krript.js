@@ -142,11 +142,11 @@ document.addEventListener('keyup', (e) => {
 const lewy = document.getElementById('lewy');
 const prawy = document.getElementById('prawy');
 
-lewy.addEventListener('mousedown', () => ruszajPaleta('left'));
-lewy.addEventListener('mouseup', () => zatrzymajRuchPalety('left'));
+lewy.addEventListener('pointerdown', () => ruszajPaleta('left'));
+lewy.addEventListener('pointerup', () => zatrzymajRuchPalety('left'));
 
-prawy.addEventListener('mousedown', () => ruszajPaleta('right'));
-prawy.addEventListener('mouseup', () => zatrzymajRuchPalety('right'));
+prawy.addEventListener('pointerdown', () => ruszajPaleta('right'));
+prawy.addEventListener('pointerup', () => zatrzymajRuchPalety('right'));
 
 function ruszajKula() {
     pozycjaKula[0] += ruchx;
@@ -224,6 +224,9 @@ function sprawdzKolizje() {
         wynikWyswietlony.innerHTML = ':(';
         koniecGry();
         przegrana.play();
+        setTimeout(function(){
+            window.location.reload();
+        }, 5000);
     }
 }
 
